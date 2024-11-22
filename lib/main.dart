@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'views/home_view.dart';
+import 'package:provider/provider.dart';
+import 'providers/post_provider.dart';
+import 'screens/home_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter GetX App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (ctx) => PostProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter App',
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: const HomeScreen(),
       ),
-      home: HomeView(),
     );
   }
 }
