@@ -1,0 +1,37 @@
+name: ujian_flutter
+description: A Flutter application with GetX and other features.
+
+publish_to: "none" # This determines whether the package is publicly visible or private.
+
+environment:
+  sdk: ">=2.19.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.6.5
+  http: ^1.0.0
+  carousel_slider: ^4.2.1
+
+  # Include additional dependencies if needed.
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  # # Add assets here if needed.
+  # assets:
+  #   - assets/images/
+  #   - assets/icons/
+
+  # fonts:
+  #   - family: Roboto
+  #     fonts:
+  #       - asset: assets/fonts/Roboto-Regular.ttf
+  #       - asset: assets/fonts/Roboto-Bold.ttf
+  #         weight: 700
