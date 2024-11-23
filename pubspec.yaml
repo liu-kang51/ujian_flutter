@@ -7,15 +7,11 @@ environment:
   sdk: ">=2.19.0 <4.0.0"
 
 dependencies:
+  carousel_slider: ^5.0.0
   flutter:
     sdk: flutter
-  get: ^4.6.5
-  http: ^1.0.0
-  carousel_slider: ^4.2.1
-
-  # Include additional dependencies if needed.
-  flutter_localizations:
-    sdk: flutter
+  http: ^1.2.2
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:
@@ -29,9 +25,9 @@ flutter:
   #   - assets/images/
   #   - assets/icons/
 
-  # fonts:
-  #   - family: Roboto
-  #     fonts:
-  #       - asset: assets/fonts/Roboto-Regular.ttf
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
   #       - asset: assets/fonts/Roboto-Bold.ttf
   #         weight: 700
