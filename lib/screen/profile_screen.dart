@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -24,12 +25,12 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              'Michael Wibu',
+              'Michael',
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 10),
             Text(
-              '@michael_wibu',
+              '@michael',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Colors.grey,
               ),

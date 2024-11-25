@@ -49,8 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Michael ', style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 20,color: Colors.red, fontWeight: FontWeight.bold),),
-            Text('Wibu', style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 18,),),
+            Text('Anime', style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 20,color: Colors.red, fontWeight: FontWeight.bold),),
+            Text('Blog', style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 18,),),
           ],
         ),
         centerTitle: true,

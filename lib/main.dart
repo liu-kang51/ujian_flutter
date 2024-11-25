@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        title: 'Michael Wibu',
+        title: 'Welcome',
         home: const SplashScreen(),
       ),
     );
