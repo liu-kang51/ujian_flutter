@@ -1,9 +1,15 @@
 
 import 'package:flutter/material.dart';
+import 'package:ujian_flutter/screen/login.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
             CircleAvatar(
               radius: 50,
               backgroundColor: Colors.white,
-              backgroundImage: NetworkImage('https://media.tenor.com/Lp97Wy2LPdEAAAAi/nonono-anime-no.gif'),
+              backgroundImage: NetworkImage('https://media1.tenor.com/m/qs5pVKHIyTUAAAAC/kakashi-hatake-kakashi.gif'),
             ),
             const SizedBox(height: 20),
             Text(
@@ -74,7 +80,7 @@ class ProfileScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ElevatedButton(
                 onPressed: () {
-                  // Add logout functionality
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
                 },
                 child: Text('Logout'),
                 style: ElevatedButton.styleFrom(
