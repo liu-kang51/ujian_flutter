@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ujian_flutter/screen/login.dart';
 import 'package:ujian_flutter/screen/main_screen.dart';
+import 'package:ujian_flutter/screen/splash_screen.dart';
 import 'providers/anime_provider.dart';
 
 void main() {
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         title: 'Michael Wibu',
-        home: const MainScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
