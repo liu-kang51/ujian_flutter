@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
-import 'package:ujian_flutter/screen/login.dart';
+import 'package:ujian_flutter/models/user_model.dart';
+import 'package:ujian_flutter/screen/login_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+  final UserModel user;
+  const ProfileScreen({super.key, required this.user});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
@@ -27,19 +28,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
             CircleAvatar(
               radius: 50,
               backgroundColor: Colors.white,
-              backgroundImage: NetworkImage('https://media1.tenor.com/m/qs5pVKHIyTUAAAAC/kakashi-hatake-kakashi.gif'),
+              backgroundImage: NetworkImage(
+                  'https://media1.tenor.com/m/qs5pVKHIyTUAAAAC/kakashi-hatake-kakashi.gif'),
             ),
             const SizedBox(height: 20),
             Text(
-              'Michael',
+              widget.user.username,
               style: Theme.of(context).textTheme.titleLarge,
-            ),
-            const SizedBox(height: 10),
-            Text(
-              '@michael',
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Colors.grey,
-              ),
             ),
             const SizedBox(height: 30),
             ListTile(
@@ -49,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               subtitle: Text(
-                'michael@example.com',
+                widget.user.email,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
@@ -60,18 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               subtitle: Text(
-                '+62 812 3456 7890',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.location_on, color: Colors.red),
-              title: Text(
-                'Location',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              subtitle: Text(
-                'Jakarta, Indonesia',
+                widget.user.phone,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
@@ -80,7 +64,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
                 },
                 child: Text('Logout'),
                 style: ElevatedButton.styleFrom(

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ujian_flutter/screen/login.dart';
-import 'package:ujian_flutter/screen/main_screen.dart';
 import 'package:ujian_flutter/screen/splash_screen.dart';
 import 'providers/anime_provider.dart';
 
@@ -18,12 +16,32 @@ class MyApp extends StatelessWidget {
       create: (ctx) => AnimeProvider(),
       child: MaterialApp(
         theme: ThemeData.dark().copyWith(
-           textTheme: const TextTheme(
-            bodyLarge: TextStyle(fontSize: 16, fontFamily: 'Poppins', color: Colors.white,),
-            bodyMedium: TextStyle(fontSize: 14, fontFamily: 'Poppins', color: Colors.white,),
-            titleLarge: TextStyle(fontSize: 18, fontFamily: 'Poppins', color: Colors.white, fontWeight: FontWeight.bold),
-            titleMedium: TextStyle(fontSize: 16, fontFamily: 'Poppins', color: Colors.white, fontWeight: FontWeight.bold),
-            titleSmall: TextStyle(fontSize: 14, fontFamily: 'Poppins', color: Colors.white, fontWeight: FontWeight.bold),
+          textTheme: const TextTheme(
+            bodyLarge: TextStyle(
+              fontSize: 16,
+              fontFamily: 'Poppins',
+              color: Colors.white,
+            ),
+            bodyMedium: TextStyle(
+              fontSize: 14,
+              fontFamily: 'Poppins',
+              color: Colors.white,
+            ),
+            titleLarge: TextStyle(
+                fontSize: 18,
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+            titleMedium: TextStyle(
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
+            titleSmall: TextStyle(
+                fontSize: 14,
+                fontFamily: 'Poppins',
+                color: Colors.white,
+                fontWeight: FontWeight.bold),
           ),
           scaffoldBackgroundColor: const Color(0xFF1A1A1A),
           appBarTheme: const AppBarTheme(

@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:ujian_flutter/screen/main_screen.dart';
+import 'package:ujian_flutter/screen/register_screen.dart';
+import 'package:ujian_flutter/services/database_helper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -10,9 +12,10 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStateMixin {
+class _LoginScreenState extends State<LoginScreen>
+    with SingleTickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
+  final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isObscure = true;
   late AnimationController _animationController;
@@ -42,7 +45,8 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage('https://cdn.myanimelist.net/images/anime/13/17405.jpg'),
+                image: NetworkImage(
+                    'https://cdn.myanimelist.net/images/anime/13/17405.jpg'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.6),
@@ -82,17 +86,23 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                           const SizedBox(height: 20),
                           Text(
                             'Welcome Back',
-                            style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium
+                                ?.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                           const SizedBox(height: 8),
                           Text(
                             'Sign in to continue',
-                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: Colors.white70,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color: Colors.white70,
+                                ),
                           ),
                           const SizedBox(height: 32),
                           Form(
@@ -100,12 +110,12 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                             child: Column(
                               children: [
                                 _buildTextField(
-                                  controller: _emailController,
-                                  hint: 'Email',
-                                  icon: Icons.email,
+                                  controller: _usernameController,
+                                  hint: 'Username',
+                                  icon: Icons.person,
                                   validator: (value) {
                                     if (value?.isEmpty ?? true) {
-                                      return 'Please enter your email';
+                                      return 'Please enter your username';
                                     }
                                     return null;
                                   },
@@ -125,6 +135,15 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                                 ),
                                 const SizedBox(height: 24),
                                 _buildLoginButton(),
+                                TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  RegisterScreen()));
+                                    },
+                                    child: Text('Don\'t have account?'))
                               ],
                             ),
                           ),
@@ -203,12 +222,25 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
         ],
       ),
       child: ElevatedButton(
-        onPressed: () {
+        onPressed: () async {
           if (_formKey.currentState!.validate()) {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => MainScreen()),
+            final user = await DatabaseHelper().getUser(
+              _usernameController.text,
+              _passwordController.text,
             );
+            if (user != null) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => MainScreen(
+                          user: user,
+                        )),
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(content: Text('Invalid email or password')),
+              );
+            }
           }
         },
         style: ElevatedButton.styleFrom(
@@ -232,7 +264,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
 
   @override
   void dispose() {
-    _emailController.dispose();
+    _usernameController.dispose();
     _passwordController.dispose();
     _animationController.dispose();
     super.dispose();

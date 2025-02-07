@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:ujian_flutter/models/user_model.dart';
 import 'package:ujian_flutter/screen/favorite_anime_screen.dart';
 import 'package:ujian_flutter/screen/home_screen.dart';
 import 'package:ujian_flutter/screen/profile_screen.dart';
 import 'package:ujian_flutter/screen/search_anime_screen.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final UserModel user;
+  const MainScreen({super.key, required this.user});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -13,13 +15,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  
-  static const List<Widget> _pages = [
-    HomeScreen(),
-    SearchAnimeScreen(),
-    FavoriteAnimeScreen(),
-    ProfileScreen(),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -29,6 +24,15 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> _pages = [
+      HomeScreen(),
+      SearchAnimeScreen(),
+      FavoriteAnimeScreen(),
+      ProfileScreen(
+        user: widget.user,
+      ),
+    ];
+
     return Scaffold(
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
