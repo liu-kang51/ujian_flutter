@@ -72,16 +72,19 @@ class _SplashScreenState extends State<SplashScreen>
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ShaderMask(
-                        shaderCallback: (bounds) => LinearGradient(
-                          colors: [Colors.white, Colors.white70],
-                        ).createShader(bounds),
-                        child: Icon(
-                          Icons.play_circle_filled,
-                          size: 100,
-                          color: Colors.white,
-                        ),
-                      ),
+                      // ShaderMask(
+                      //   shaderCallback: (bounds) => LinearGradient(
+                      //     colors: [Colors.white, Colors.white70],
+                      //   ).createShader(bounds),
+                      //   child: Icon(
+                      //     Icons.play_circle_filled,
+                      //     size: 100,
+                      //     color: Colors.white,
+                      //   ),
+                      // ),
+                      ClipOval(
+                          child:
+                              Image.asset('assets/images/icon_launcher.jpg')),
                       SizedBox(height: 24),
                       Text(
                         'Anime Blog',
