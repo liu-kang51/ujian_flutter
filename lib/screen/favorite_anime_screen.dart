@@ -42,10 +42,11 @@ class _FavoriteAnimeScreenState extends State<FavoriteAnimeScreen> with SingleTi
                     background: Stack(
                       fit: StackFit.expand,
                       children: [
-                        Image.network(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPB_I4_zd7FLCX0-h9eUDQJrGk0oefpYdv-Q&s',
+                        Image.asset(
+                          'assets/images/kuromiland.jpg', // Ensure the image is in the assets folder
                           fit: BoxFit.cover,
                         ),
+
                         DecoratedBox(
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
@@ -92,8 +93,8 @@ class _FavoriteAnimeScreenState extends State<FavoriteAnimeScreen> with SingleTi
                         Tab(text: 'Grid View'),
                         Tab(text: 'List View'),
                       ],
-                      indicatorColor: Colors.red,
-                      labelColor: Colors.red,
+                      indicatorColor: Colors.purple,
+                      labelColor: Colors.purple,
                       unselectedLabelColor: Colors.grey,
                     ),
                   ),
@@ -158,7 +159,7 @@ class _FavoriteAnimeScreenState extends State<FavoriteAnimeScreen> with SingleTi
           Icon(
             Icons.favorite_border,
             size: 100,
-            color: Colors.red.withOpacity(0.5),
+            color: Colors.purple.withOpacity(0.5),
           ),
           SizedBox(height: 16),
           Text(

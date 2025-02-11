@@ -47,8 +47,8 @@ class _RegisterScreenState extends State<RegisterScreen>
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(
-                    'https://cdn.myanimelist.net/images/anime/13/17405.jpg'),
+                image: AssetImage(
+                    'assets/images/kuromi1.jpg'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.6),
@@ -77,7 +77,7 @@ class _RegisterScreenState extends State<RegisterScreen>
                         children: [
                           ShaderMask(
                             shaderCallback: (bounds) => LinearGradient(
-                              colors: [Colors.red, Colors.orange],
+                              colors: [Colors.purple, Colors.purpleAccent],
                             ).createShader(bounds),
                             child: Icon(
                               Icons.play_circle_filled,
@@ -213,7 +213,7 @@ class _RegisterScreenState extends State<RegisterScreen>
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.red),
+          borderSide: BorderSide(color: Colors.purpleAccent),
         ),
       ),
       validator: validator,
@@ -226,12 +226,12 @@ class _RegisterScreenState extends State<RegisterScreen>
       height: 50,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.red.shade700, Colors.red],
+          colors: [Colors.purple.shade700, Colors.purple],
         ),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.red.withOpacity(0.3),
+            color: Colors.purple.withOpacity(0.3),
             spreadRadius: 1,
             blurRadius: 8,
             offset: Offset(0, 2),

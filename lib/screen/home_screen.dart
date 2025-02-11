@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (response.statusCode == 200) {
       final json = jsonDecode(response.body);
       setState(() {
-        ongoingAnime = json['data'].take(6).toList();
+        ongoingAnime = json['data'].take(50).toList();
       });
     }
   }
@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Text(
               'Anime',
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontSize: 20, color: Colors.red, fontWeight: FontWeight.bold),
+                  fontSize: 20, color: Colors.purple.shade400, fontWeight: FontWeight.bold),
             ),
             Text(
               'Blog',
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 end: Alignment.bottomCenter,
                                 colors: [
                                   Colors.transparent,
-                                  Colors.black.withOpacity(0.7)
+                                  Colors.purple.withOpacity(0.2)
                                 ],
                               ),
                             ),
@@ -201,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 end: Alignment.bottomCenter,
                                 colors: [
                                   Colors.transparent,
-                                  Colors.black.withOpacity(0.7)
+                                  Colors.purple.withOpacity(0.7)
                                 ],
                               ),
                             ),

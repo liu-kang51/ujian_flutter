@@ -45,8 +45,8 @@ class _LoginScreenState extends State<LoginScreen>
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage(
-                    'https://cdn.myanimelist.net/images/anime/13/17405.jpg'),
+                image: AssetImage(
+                    'assets/images/kuromi1.jpg'),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(
                   Colors.black.withOpacity(0.6),
@@ -73,14 +73,14 @@ class _LoginScreenState extends State<LoginScreen>
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          ShaderMask(
+                         ShaderMask(
                             shaderCallback: (bounds) => LinearGradient(
-                              colors: [Colors.red, Colors.orange],
+                              colors: [Colors.purple, Colors.purpleAccent], // Gradient from purple to purpleAccent
                             ).createShader(bounds),
                             child: Icon(
                               Icons.play_circle_filled,
                               size: 80,
-                              color: Colors.white,
+                              color: Colors.white, // This color will be overridden by the shader
                             ),
                           ),
                           const SizedBox(height: 20),
@@ -196,7 +196,7 @@ class _LoginScreenState extends State<LoginScreen>
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.red),
+          borderSide: BorderSide(color: Colors.purple),
         ),
       ),
       validator: validator,
@@ -209,12 +209,12 @@ class _LoginScreenState extends State<LoginScreen>
       height: 50,
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Colors.red.shade700, Colors.red],
+          colors: [Colors.purple.shade700, Colors.purple.shade500],
         ),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.red.withOpacity(0.3),
+            color: Colors.purple.withOpacity(0.3),
             spreadRadius: 1,
             blurRadius: 8,
             offset: Offset(0, 2),

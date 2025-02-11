@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (ctx) => AnimeProvider(),
       child: MaterialApp(
-        theme: ThemeData.dark().copyWith(
+        theme: ThemeData.light().copyWith(
           textTheme: const TextTheme(
             bodyLarge: TextStyle(
               fontSize: 16,
@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.black,
               foregroundColor: Colors.white,
             ),
           ),

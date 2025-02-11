@@ -29,7 +29,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               radius: 50,
               backgroundColor: Colors.white,
               backgroundImage: NetworkImage(
-                  'https://media1.tenor.com/m/qs5pVKHIyTUAAAAC/kakashi-hatake-kakashi.gif'),
+                  'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDRpcHAxenV1aTFuNmtucGUxa3Z5dHhrZGl4NG14Mzdydm5kdDVjeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/dCRVRbdbZUlNt1sRPd/giphy.gif'),
             ),
             const SizedBox(height: 20),
             Text(
@@ -38,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 30),
             ListTile(
-              leading: Icon(Icons.email, color: Colors.red),
+              leading: Icon(Icons.email, color: Colors.purple),
               title: Text(
                 'Email',
                 style: Theme.of(context).textTheme.titleMedium,
@@ -49,7 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.phone, color: Colors.red),
+              leading: Icon(Icons.phone, color: Colors.purple),
               title: Text(
                 'Phone',
                 style: Theme.of(context).textTheme.titleMedium,
@@ -69,8 +69,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       MaterialPageRoute(
                           builder: (context) => const LoginScreen()));
                 },
-                child: Text('Logout'),
+                child: Text(
+                  'Logout',
+                  style: TextStyle(color: Colors.black),
+                ),
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.purple,
+                  textStyle: TextStyle(color: Colors.black,
+                  fontWeight: FontWeight.bold,),
                   minimumSize: Size(double.infinity, 50),
                 ),
               ),

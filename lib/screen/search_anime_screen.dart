@@ -66,14 +66,14 @@ class _SearchAnimeScreenState extends State<SearchAnimeScreen> {
               style: Theme.of(context).textTheme.bodyLarge,
               decoration: InputDecoration(
                 hintText: 'Search anime...',
-                prefixIcon: Icon(Icons.search, color: Colors.red),
+                prefixIcon: Icon(Icons.search, color: Colors.white),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.red),
+                  borderSide: BorderSide(color: Colors.white),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
-                  borderSide: BorderSide(color: Colors.red, width: 2),
+                  borderSide: BorderSide(color: Colors.white, width: 2),
                 ),
                 filled: true,
                 fillColor: Color(0xFF262626),
